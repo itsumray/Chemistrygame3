@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>化学クエスト (Chemistry Quest)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=M+PLUS+Rounded+1c:wght@500;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">🧪 化学クエスト</div>
+        <nav>
+            <button onclick="showHome()">ホーム</button>
+            <button onclick="startGame('basic')">基礎元素</button>
+            <button onclick="startGame('master')">全元素118</button>
+            <button onclick="startGame('equations')">反応式</button>
+            <button onclick="startGame('ph')">酸・塩基</button>
+        </nav>
+    </header>
+
+    <main id="game-container">
+        <!-- Game content loads here -->
+    </main>
+
+    <footer id="main-footer">
+        <p>© 2023 Kagaku Quest</p>
+    </footer>
+
+    <!-- Script loaded at the end to ensure HTML is ready -->
+    <script src="script.js"></script>
+</body>
+</html>
