@@ -1,5 +1,6 @@
-// --- DATASETS ---
+// --- データセット ---
 
+// 高校化学 基礎25選
 const basicElements = [
     { number: 1, symbol: 'H', name: '水素' }, { number: 2, symbol: 'He', name: 'ヘリウム' },
     { number: 3, symbol: 'Li', name: 'リチウム' }, { number: 4, symbol: 'Be', name: 'ベリリウム' },
@@ -16,67 +17,39 @@ const basicElements = [
     { number: 79, symbol: 'Au', name: '金' }
 ];
 
+// 全118元素データ
 const allElements = [
-    { number: 1, symbol: 'H', name: '水素' }, { number: 2, symbol: 'He', name: 'ヘリウム' },
-    { number: 3, symbol: 'Li', name: 'リチウム' }, { number: 4, symbol: 'Be', name: 'ベリリウム' },
-    { number: 5, symbol: 'B', name: 'ホウ素' }, { number: 6, symbol: 'C', name: '炭素' },
-    { number: 7, symbol: 'N', name: '窒素' }, { number: 8, symbol: 'O', name: '酸素' },
-    { number: 9, symbol: 'F', name: 'フッ素' }, { number: 10, symbol: 'Ne', name: 'ネオン' },
-    { number: 11, symbol: 'Na', name: 'ナトリウム' }, { number: 12, symbol: 'Mg', name: 'マグネシウム' },
-    { number: 13, symbol: 'Al', name: 'アルミニウム' }, { number: 14, symbol: 'Si', name: 'ケイ素' },
-    { number: 15, symbol: 'P', name: 'リン' }, { number: 16, symbol: 'S', name: '硫黄' },
-    { number: 17, symbol: 'Cl', name: '塩素' }, { number: 18, symbol: 'Ar', name: 'アルゴン' },
-    { number: 19, symbol: 'K', name: 'カリウム' }, { number: 20, symbol: 'Ca', name: 'カルシウム' },
-    { number: 21, symbol: 'Sc', name: 'スカンジウム' }, { number: 22, symbol: 'Ti', name: 'チタン' },
-    { number: 23, symbol: 'V', name: 'バナジウム' }, { number: 24, symbol: 'Cr', name: 'クロム' },
-    { number: 25, symbol: 'Mn', name: 'マンガン' }, { number: 26, symbol: 'Fe', name: '鉄' },
-    { number: 27, symbol: 'Co', name: 'コバルト' }, { number: 28, symbol: 'Ni', name: 'ニッケル' },
-    { number: 29, symbol: 'Cu', name: '銅' }, { number: 30, symbol: 'Zn', name: '亜鉛' },
-    { number: 31, symbol: 'Ga', name: 'ガリウム' }, { number: 32, symbol: 'Ge', name: 'ゲルマニウム' },
-    { number: 33, symbol: 'As', name: 'ヒ素' }, { number: 34, symbol: 'Se', name: 'セレン' },
-    { number: 35, symbol: 'Br', name: '臭素' }, { number: 36, symbol: 'Kr', name: 'クリプトン' },
-    { number: 37, symbol: 'Rb', name: 'ルビジウム' }, { number: 38, symbol: 'Sr', name: 'ストロンチウム' },
-    { number: 39, symbol: 'Y', name: 'イットリウム' }, { number: 40, symbol: 'Zr', name: 'ジルコニウム' },
-    { number: 41, symbol: 'Nb', name: 'ニオブ' }, { number: 42, symbol: 'Mo', name: 'モリブデン' },
-    { number: 43, symbol: 'Tc', name: 'テクネチウム' }, { number: 44, symbol: 'Ru', name: 'ルテニウム' },
-    { number: 45, symbol: 'Rh', name: 'ロジウム' }, { number: 46, symbol: 'Pd', name: 'パラジウム' },
-    { number: 47, symbol: 'Ag', name: '銀' }, { number: 48, symbol: 'Cd', name: 'カドミウム' },
-    { number: 49, symbol: 'In', name: 'インジウム' }, { number: 50, symbol: 'Sn', name: 'スズ' },
-    { number: 51, symbol: 'Sb', name: 'アンチモン' }, { number: 52, symbol: 'Te', name: 'テルル' },
-    { number: 53, symbol: 'I', name: 'ヨウ素' }, { number: 54, symbol: 'Xe', name: 'キセノン' },
-    { number: 55, symbol: 'Cs', name: 'セシウム' }, { number: 56, symbol: 'Ba', name: 'バリウム' },
-    { number: 57, symbol: 'La', name: 'ランタン' }, { number: 58, symbol: 'Ce', name: 'セリウム' },
-    { number: 59, symbol: 'Pr', name: 'プラセオジム' }, { number: 60, symbol: 'Nd', name: 'ネオジム' },
-    { number: 61, symbol: 'Pm', name: 'プロメチウム' }, { number: 62, symbol: 'Sm', name: 'サマリウム' },
-    { number: 63, symbol: 'Eu', name: 'ユウロピウム' }, { number: 64, symbol: 'Gd', name: 'ガドリニウム' },
-    { number: 65, symbol: 'Tb', name: 'テルビウム' }, { number: 66, symbol: 'Dy', name: 'ジスプロシウム' },
-    { number: 67, symbol: 'Ho', name: 'ホルミウム' }, { number: 68, symbol: 'Er', name: 'エルビウム' },
-    { number: 69, symbol: 'Tm', name: 'ツリウム' }, { number: 70, symbol: 'Yb', name: 'イッテルビウム' },
-    { number: 71, symbol: 'Lu', name: 'ルテチウム' }, { number: 72, symbol: 'Hf', name: 'ハフニウム' },
-    { number: 73, symbol: 'Ta', name: 'タンタル' }, { number: 74, symbol: 'W', name: 'タングステン' },
-    { number: 75, symbol: 'Re', name: 'レニウム' }, { number: 76, symbol: 'Os', name: 'オスミウム' },
-    { number: 77, symbol: 'Ir', name: 'イリジウム' }, { number: 78, symbol: 'Pt', name: '白金' },
-    { number: 79, symbol: 'Au', name: '金' }, { number: 80, symbol: 'Hg', name: '水銀' },
-    { number: 81, symbol: 'Tl', name: 'タリウム' }, { number: 82, symbol: 'Pb', name: '鉛' },
-    { number: 83, symbol: 'Bi', name: 'ビスマス' }, { number: 84, symbol: 'Po', name: 'ポロニウム' },
-    { number: 85, symbol: 'At', name: 'アスタチン' }, { number: 86, symbol: 'Rn', name: 'ラドン' },
-    { number: 87, symbol: 'Fr', name: 'フランシウム' }, { number: 88, symbol: 'Ra', name: 'ラジウム' },
-    { number: 89, symbol: 'Ac', name: 'アクチニウム' }, { number: 90, symbol: 'Th', name: 'トリウム' },
-    { number: 91, symbol: 'Pa', name: 'プロトアクチニウム' }, { number: 92, symbol: 'U', name: 'ウラン' },
-    { number: 93, symbol: 'Np', name: 'ネプツニウム' }, { number: 94, symbol: 'Pu', name: 'プルトニウム' },
-    { number: 95, symbol: 'Am', name: 'アメリシウム' }, { number: 96, symbol: 'Cm', name: 'キュリウム' },
-    { number: 97, symbol: 'Bk', name: 'バークリウム' }, { number: 98, symbol: 'Cf', name: 'カリホルニウム' },
-    { number: 99, symbol: 'Es', name: 'アインスタイニウム' }, { number: 100, symbol: 'Fm', name: 'フェルミウム' },
-    { number: 101, symbol: 'Md', name: 'メンデレビウム' }, { number: 102, symbol: 'No', name: 'ノーベリウム' },
-    { number: 103, symbol: 'Lr', name: 'ローレンシウム' }, { number: 104, symbol: 'Rf', name: 'ラザホージウム' },
-    { number: 105, symbol: 'Db', name: 'ドブニウム' }, { number: 106, symbol: 'Sg', name: 'シーボーギウム' },
-    { number: 107, symbol: 'Bh', name: 'ボーリウム' }, { number: 108, symbol: 'Hs', name: 'ハッシウム' },
-    { number: 109, symbol: 'Mt', name: 'マイトネリウム' }, { number: 110, symbol: 'Ds', name: 'ダームスタチウム' },
-    { number: 111, symbol: 'Rg', name: 'レントゲニウム' }, { number: 112, symbol: 'Cn', name: 'コペルニシウム' },
-    { number: 113, symbol: 'Nh', name: 'ニホニウム' }, { number: 114, symbol: 'Fl', name: 'フレロビウム' },
-    { number: 115, symbol: 'Mc', name: 'モスコビウム' }, { number: 116, symbol: 'Lv', name: 'リバモリウム' },
-    { number: 117, symbol: 'Ts', name: 'テネシン' }, { number: 118, symbol: 'Og', name: 'オガネソン' }
-];
+    {n:1,s:'H',j:'水素'},{n:2,s:'He',j:'ヘリウム'},{n:3,s:'Li',j:'リチウム'},{n:4,s:'Be',j:'ベリリウム'},
+    {n:5,s:'B',j:'ホウ素'},{n:6,s:'C',j:'炭素'},{n:7,s:'N',j:'窒素'},{n:8,s:'O',j:'酸素'},
+    {n:9,s:'F',j:'フッ素'},{n:10,s:'Ne',j:'ネオン'},{n:11,s:'Na',j:'ナトリウム'},{n:12,s:'Mg',j:'マグネシウム'},
+    {n:13,s:'Al',j:'アルミニウム'},{n:14,s:'Si',j:'ケイ素'},{n:15,s:'P',j:'リン'},{n:16,s:'S',j:'硫黄'},
+    {n:17,s:'Cl',j:'塩素'},{n:18,s:'Ar',j:'アルゴン'},{n:19,s:'K',j:'カリウム'},{n:20,s:'Ca',j:'カルシウム'},
+    {n:21,s:'Sc',j:'スカンジウム'},{n:22,s:'Ti',j:'チタン'},{n:23,s:'V',j:'バナジウム'},{n:24,s:'Cr',j:'クロム'},
+    {n:25,s:'Mn',j:'マンガン'},{n:26,s:'Fe',j:'鉄'},{n:27,s:'Co',j:'コバルト'},{n:28,s:'Ni',j:'ニッケル'},
+    {n:29,s:'Cu',j:'銅'},{n:30,s:'Zn',j:'亜鉛'},{n:31,s:'Ga',j:'ガリウム'},{n:32,s:'Ge',j:'ゲルマニウム'},
+    {n:33,s:'As',j:'ヒ素'},{n:34,s:'Se',j:'セレン'},{n:35,s:'Br',j:'臭素'},{n:36,s:'Kr',j:'クリプトン'},
+    {n:37,s:'Rb',j:'ルビジウム'},{n:38,s:'Sr',j:'ストロンチウム'},{n:39,s:'Y',j:'イットリウム'},{n:40,s:'Zr',j:'ジルコニウム'},
+    {n:41,s:'Nb',j:'ニオブ'},{n:42,s:'Mo',j:'モリブデン'},{n:43,s:'Tc',j:'テクネチウム'},{n:44,s:'Ru',j:'ルテニウム'},
+    {n:45,s:'Rh',j:'ロジウム'},{n:46,s:'Pd',j:'パラジウム'},{n:47,s:'Ag',j:'銀'},{n:48,s:'Cd',j:'カドミウム'},
+    {n:49,s:'In',j:'インジウム'},{n:50,s:'Sn',j:'スズ'},{n:51,s:'Sb',j:'アンチモン'},{n:52,s:'Te',j:'テルル'},
+    {n:53,s:'I',j:'ヨウ素'},{n:54,s:'Xe',j:'キセノン'},{n:55,s:'Cs',j:'セシウム'},{n:56,s:'Ba',j:'バリウム'},
+    {n:57,s:'La',j:'ランタン'},{n:58,s:'Ce',j:'セリウム'},{n:59,s:'Pr',j:'プラセオジム'},{n:60,s:'Nd',j:'ネオジム'},
+    {n:61,s:'Pm',j:'プロメチウム'},{n:62,s:'Sm',j:'サマリウム'},{n:63,s:'Eu',j:'ユウロピウム'},{n:64,s:'Gd',j:'ガドリニウム'},
+    {n:65,s:'Tb',j:'テルビウム'},{n:66,s:'Dy',j:'ジスプロシウム'},{n:67,s:'Ho',j:'ホルミウム'},{n:68,s:'Er',j:'エルビウム'},
+    {n:69,s:'Tm',j:'ツリウム'},{n:70,s:'Yb',j:'イッテルビウム'},{n:71,s:'Lu',j:'ルテチウム'},{n:72,s:'Hf',j:'ハフニウム'},
+    {n:73,s:'Ta',j:'タンタル'},{n:74,s:'W',j:'タングステン'},{n:75,s:'Re',j:'レニウム'},{n:76,s:'Os',j:'オスミウム'},
+    {n:77,s:'Ir',j:'イリジウム'},{n:78,s:'Pt',j:'白金'},{n:79,s:'Au',j:'金'},{n:80,s:'Hg',j:'水銀'},
+    {n:81,s:'Tl',j:'タリウム'},{n:82,s:'Pb',j:'鉛'},{n:83,s:'Bi',j:'ビスマス'},{n:84,s:'Po',j:'ポロニウム'},
+    {n:85,s:'At',j:'アスタチン'},{n:86,s:'Rn',j:'ラドン'},{n:87,s:'Fr',j:'フランシウム'},{n:88,s:'Ra',j:'ラジウム'},
+    {n:89,s:'Ac',j:'アクチニウム'},{n:90,s:'Th',j:'トリウム'},{n:91,s:'Pa',j:'プロトアクチニウム'},{n:92,s:'U',j:'ウラン'},
+    {n:93,s:'Np',j:'ネプツニウム'},{n:94,s:'Pu',j:'プルトニウム'},{n:95,s:'Am',j:'アメリシウム'},{n:96,s:'Cm',j:'キュリウム'},
+    {n:97,s:'Bk',j:'バークリウム'},{n:98,s:'Cf',j:'カリホルニウム'},{n:99,s:'Es',j:'アインスタイニウム'},{n:100,s:'Fm',j:'フェルミウム'},
+    {n:101,s:'Md',j:'メンデレビウム'},{n:102,s:'No',j:'ノーベリウム'},{n:103,s:'Lr',j:'ローレンシウム'},{n:104,s:'Rf',j:'ラザホージウム'},
+    {n:105,s:'Db',j:'ドブニウム'},{n:106,s:'Sg',j:'シーボーギウム'},{n:107,s:'Bh',j:'ボーリウム'},{n:108,s:'Hs',j:'ハッシウム'},
+    {n:109,s:'Mt',j:'マイトネリウム'},{n:110,s:'Ds',j:'ダームスタチウム'},{n:111,s:'Rg',j:'レントゲニウム'},{n:112,s:'Cn',j:'コペルニシウム'},
+    {n:113,s:'Nh',j:'ニホニウム'},{n:114,s:'Fl',j:'フレロビウム'},{n:115,s:'Mc',j:'モスコビウム'},{n:116,s:'Lv',j:'リバモリウム'},
+    {n:117,s:'Ts',j:'テネシン'},{n:118,s:'Og',j:'オガネソン'}
+].map(e => ({ number: e.n, symbol: e.s, name: e.j })); // フォーマットを統一
 
 const equationsData = [
     { parts: ['<input class="eq-input" id="c1" type="number"> H₂', '+', '<input class="eq-input" id="c2" type="number"> O₂', '→', '<input class="eq-input" id="c3" type="number"> H₂O'], answer: [2, 1, 2], desc: '水の生成' },
@@ -92,7 +65,7 @@ const phData = [
 ];
 
 
-// --- CONTROLLER ---
+// --- コントローラー ---
 
 const gameContainer = document.getElementById('game-container');
 
@@ -111,7 +84,7 @@ function showHome() {
                     <p>全118個からランダムで10問出題。</p>
                 </div>
                 <div class="menu-card survival-card" onclick="startGame('survival')">
-                    <h2>👑 全118完全制覇</h2>
+                    <h2>👑 全118制覇</h2>
                     <p>逃げ場なし！118個全て答えるマラソン。</p>
                 </div>
                 <div class="menu-card" onclick="startGame('equations')">
@@ -127,16 +100,14 @@ function showHome() {
     `;
 }
 
+// ゲーム振分け
 function startGame(type) {
     if (type === 'basic') {
-        // Basic: Pick 10 randoms from the Basic list
-        runElementsGame(basicElements, 10, '基礎25クイズ');
+        runStandardGame(basicElements, 10, '基礎25クイズ');
     } else if (type === 'master') {
-        // Master: Pick 10 randoms from All 118 list
-        runElementsGame(allElements, 10, 'ランダム10チャレンジ');
+        runStandardGame(allElements, 10, 'ランダム10チャレンジ');
     } else if (type === 'survival') {
-        // Survival: Do ALL 118 elements
-        runSurvivalGame();
+        runSurvivalGame(); // 全118制覇モード
     } else if (type === 'equations') {
         runEquationsGame();
     } else if (type === 'ph') {
@@ -145,9 +116,9 @@ function startGame(type) {
 }
 
 
-// --- GAME ENGINE 1: STANDARD QUIZ (10 QUESTIONS) ---
+// --- ゲームエンジン1: 通常クイズ (10問) ---
 
-function runElementsGame(dataset, maxQuestions, title) {
+function runStandardGame(dataset, maxQuestions, title) {
     let score = 0;
     let count = 0;
 
@@ -198,6 +169,9 @@ function runElementsGame(dataset, maxQuestions, title) {
                     fb.innerText = `残念... 正解は ${current.name}`;
                 }
                 count++;
+                // ボタン連打防止
+                const allBtns = document.querySelectorAll('.game-btn');
+                allBtns.forEach(b => b.disabled = true);
                 setTimeout(nextQuestion, 1200);
             };
             container.appendChild(btn);
@@ -208,37 +182,36 @@ function runElementsGame(dataset, maxQuestions, title) {
 }
 
 
-// --- GAME ENGINE 2: SURVIVAL (ALL 118 QUESTIONS) ---
+// --- ゲームエンジン2: 完全制覇モード (全問出題) ---
 
 function runSurvivalGame() {
-    // 1. Copy the full array so we can remove items as we go (or just shuffle once)
-    // We want to ask ALL 118, so we create a "To Do List"
-    let todoList = [...allElements]; 
-    
-    // 2. Shuffle the To Do List
-    todoList.sort(() => Math.random() - 0.5);
+    // 1. 全データをコピーしてシャッフルする（出題順をランダムにする）
+    let survivalList = [...allElements]; 
+    survivalList.sort(() => Math.random() - 0.5);
 
+    let currentIdx = 0; // 現在何問目か
     let score = 0;
-    let totalQs = allElements.length; // 118
-    let currentIdx = 0;
+    let totalQs = survivalList.length; // 118
 
-    function nextSurvivalQuestion() {
+    // 再帰的に次の問題を出す関数
+    function showNext() {
+        // 終了条件: 全部の問題を出し切ったら
         if (currentIdx >= totalQs) {
             gameContainer.innerHTML = `
                 <div class="game-area">
                     <h2 style="color:var(--danger)">完全制覇 達成！</h2>
                     <p>118個すべての元素を答えました。</p>
                     <p class="question-box">${score} / ${totalQs} 正解</p>
-                    <p>お疲れ様でした！</p>
+                    <p>素晴らしい根性です！</p>
                     <button class="game-btn" onclick="showHome()">ホームに戻る</button>
                 </div>
             `;
             return;
         }
 
-        const current = todoList[currentIdx];
+        const current = survivalList[currentIdx];
 
-        // Generate options: 1 correct + 3 random wrongs from the MAIN list
+        // 選択肢作成: 正解1個 + 全リストからランダムな誤答3個
         let options = [current.name];
         while (options.length < 4) {
             let rand = allElements[Math.floor(Math.random() * allElements.length)];
@@ -246,12 +219,14 @@ function runSurvivalGame() {
         }
         options.sort(() => Math.random() - 0.5);
 
+        // 画面描画
         gameContainer.innerHTML = `
             <div class="game-area">
-                <h2 style="color:var(--danger)">完全制覇モード</h2>
-                <div class="progress-bar">残り: ${totalQs - currentIdx}個 (正解率: ${Math.round((score/(currentIdx||1))*100)}%)</div>
+                <h2 style="color:var(--danger)">全118制覇モード</h2>
+                <div class="progress-text">残り: ${totalQs - currentIdx}個 / 現在正解数: ${score}</div>
                 <div class="atomic-number">No. ${current.number}</div>
                 <div class="question-box" style="color:var(--danger)">${current.symbol}</div>
+                <p>名前を選べ！</p>
                 <div class="options-grid" id="opt-container"></div>
                 <div class="feedback" id="fb"></div>
             </div>
@@ -264,8 +239,8 @@ function runSurvivalGame() {
             btn.innerText = opt;
             btn.onclick = () => {
                 const fb = document.getElementById('fb');
-                const btns = document.querySelectorAll('.game-btn');
-                btns.forEach(b => b.disabled = true); // Prevent double clicking
+                const allBtns = document.querySelectorAll('.game-btn');
+                allBtns.forEach(b => b.disabled = true); // 連打防止
 
                 if (opt === current.name) {
                     score++;
@@ -276,17 +251,18 @@ function runSurvivalGame() {
                     fb.innerText = `不正解... 正解は ${current.name}`;
                 }
                 currentIdx++;
-                setTimeout(nextSurvivalQuestion, 1000); // Faster transition for marathon
+                setTimeout(showNext, 800); // テンポよく進むように短めに設定
             };
             container.appendChild(btn);
         });
     }
 
-    nextSurvivalQuestion();
+    // 最初の問題を表示
+    showNext();
 }
 
 
-// --- OTHER GAME ENGINES ---
+// --- その他ゲーム (反応式・pH) ---
 
 function runEquationsGame() {
     let idx = 0;
@@ -340,7 +316,7 @@ function runPhGame() {
                 <div class="options-grid" style="grid-template-columns:1fr 1fr 1fr">
                     <button class="game-btn" style="background:#E74C3C" onclick="checkPh('acid','${q.type}')">酸性</button>
                     <button class="game-btn" style="background:#2ECC71" onclick="checkPh('neutral','${q.type}')">中性</button>
-                    <button class="game-btn" style="background:#3498DB" onclick="checkPh('base','${q.type}')">アルカリ性</button>
+                    <button class="game-btn" style="background:#3498DB" onclick="checkPh('base','${q.type}')">塩基性</button>
                 </div>
                 <div class="feedback" id="ph-fb"></div>
             </div>
@@ -358,5 +334,5 @@ function runPhGame() {
     nextPh();
 }
 
-// Initial Load
+// 起動時にホームを表示
 showHome();
