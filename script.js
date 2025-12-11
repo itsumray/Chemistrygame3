@@ -1,35 +1,21 @@
 // --- DATASETS ---
 
-// 1. High School Basic Elements (The "Must Memorize" list)
 const basicElements = [
-    { number: 1, symbol: 'H', name: '水素' },
-    { number: 2, symbol: 'He', name: 'ヘリウム' },
-    { number: 3, symbol: 'Li', name: 'リチウム' },
-    { number: 4, symbol: 'Be', name: 'ベリリウム' },
-    { number: 5, symbol: 'B', name: 'ホウ素' },
-    { number: 6, symbol: 'C', name: '炭素' },
-    { number: 7, symbol: 'N', name: '窒素' },
-    { number: 8, symbol: 'O', name: '酸素' },
-    { number: 9, symbol: 'F', name: 'フッ素' },
-    { number: 10, symbol: 'Ne', name: 'ネオン' },
-    { number: 11, symbol: 'Na', name: 'ナトリウム' },
-    { number: 12, symbol: 'Mg', name: 'マグネシウム' },
-    { number: 13, symbol: 'Al', name: 'アルミニウム' },
-    { number: 14, symbol: 'Si', name: 'ケイ素' },
-    { number: 15, symbol: 'P', name: 'リン' },
-    { number: 16, symbol: 'S', name: '硫黄' },
-    { number: 17, symbol: 'Cl', name: '塩素' },
-    { number: 18, symbol: 'Ar', name: 'アルゴン' },
-    { number: 19, symbol: 'K', name: 'カリウム' },
-    { number: 20, symbol: 'Ca', name: 'カルシウム' },
-    { number: 26, symbol: 'Fe', name: '鉄' },
-    { number: 29, symbol: 'Cu', name: '銅' },
-    { number: 30, symbol: 'Zn', name: '亜鉛' },
-    { number: 47, symbol: 'Ag', name: '銀' },
+    { number: 1, symbol: 'H', name: '水素' }, { number: 2, symbol: 'He', name: 'ヘリウム' },
+    { number: 3, symbol: 'Li', name: 'リチウム' }, { number: 4, symbol: 'Be', name: 'ベリリウム' },
+    { number: 5, symbol: 'B', name: 'ホウ素' }, { number: 6, symbol: 'C', name: '炭素' },
+    { number: 7, symbol: 'N', name: '窒素' }, { number: 8, symbol: 'O', name: '酸素' },
+    { number: 9, symbol: 'F', name: 'フッ素' }, { number: 10, symbol: 'Ne', name: 'ネオン' },
+    { number: 11, symbol: 'Na', name: 'ナトリウム' }, { number: 12, symbol: 'Mg', name: 'マグネシウム' },
+    { number: 13, symbol: 'Al', name: 'アルミニウム' }, { number: 14, symbol: 'Si', name: 'ケイ素' },
+    { number: 15, symbol: 'P', name: 'リン' }, { number: 16, symbol: 'S', name: '硫黄' },
+    { number: 17, symbol: 'Cl', name: '塩素' }, { number: 18, symbol: 'Ar', name: 'アルゴン' },
+    { number: 19, symbol: 'K', name: 'カリウム' }, { number: 20, symbol: 'Ca', name: 'カルシウム' },
+    { number: 26, symbol: 'Fe', name: '鉄' }, { number: 29, symbol: 'Cu', name: '銅' },
+    { number: 30, symbol: 'Zn', name: '亜鉛' }, { number: 47, symbol: 'Ag', name: '銀' },
     { number: 79, symbol: 'Au', name: '金' }
 ];
 
-// 2. Master Mode (All 118 Elements)
 const allElements = [
     { number: 1, symbol: 'H', name: '水素' }, { number: 2, symbol: 'He', name: 'ヘリウム' },
     { number: 3, symbol: 'Li', name: 'リチウム' }, { number: 4, symbol: 'Be', name: 'ベリリウム' },
@@ -110,20 +96,23 @@ const phData = [
 
 const gameContainer = document.getElementById('game-container');
 
-// Show the main menu
 function showHome() {
     gameContainer.innerHTML = `
         <div class="hero">
             <h1>化学の世界へようこそ！</h1>
-            <p>高校化学の基礎から、マニアックな118元素まで。</p>
+            <p>高校化学の基礎から完全制覇まで。</p>
             <div class="menu-grid">
                 <div class="menu-card" onclick="startGame('basic')">
-                    <h2>🔥 基礎元素クイズ</h2>
-                    <p>まずはここから！基本の20個。</p>
+                    <h2>🔥 基礎25クイズ</h2>
+                    <p>まずはここから！基本の25個。</p>
                 </div>
                 <div class="menu-card master-card" onclick="startGame('master')">
-                    <h2>💀 周期表マスター</h2>
-                    <p>全118元素に挑戦！君はどこまでいける？</p>
+                    <h2>💀 ランダム10</h2>
+                    <p>全118個からランダムで10問出題。</p>
+                </div>
+                <div class="menu-card survival-card" onclick="startGame('survival')">
+                    <h2>👑 全118完全制覇</h2>
+                    <p>逃げ場なし！118個全て答えるマラソン。</p>
                 </div>
                 <div class="menu-card" onclick="startGame('equations')">
                     <h2>⚖️ 化学反応式パズル</h2>
@@ -138,12 +127,16 @@ function showHome() {
     `;
 }
 
-// Router to start games
 function startGame(type) {
     if (type === 'basic') {
-        runElementsGame(basicElements, '基礎元素クイズ');
+        // Basic: Pick 10 randoms from the Basic list
+        runElementsGame(basicElements, 10, '基礎25クイズ');
     } else if (type === 'master') {
-        runElementsGame(allElements, '周期表マスター');
+        // Master: Pick 10 randoms from All 118 list
+        runElementsGame(allElements, 10, 'ランダム10チャレンジ');
+    } else if (type === 'survival') {
+        // Survival: Do ALL 118 elements
+        runSurvivalGame();
     } else if (type === 'equations') {
         runEquationsGame();
     } else if (type === 'ph') {
@@ -152,31 +145,25 @@ function startGame(type) {
 }
 
 
-// --- GAME ENGINES ---
+// --- GAME ENGINE 1: STANDARD QUIZ (10 QUESTIONS) ---
 
-// 1. Universal Elements Game Engine
-// Works for both Basic and Master because data format is now identical
-function runElementsGame(dataset, title) {
+function runElementsGame(dataset, maxQuestions, title) {
     let score = 0;
     let count = 0;
-    const maxQ = 10;
 
     function nextQuestion() {
-        if (count >= maxQ) {
+        if (count >= maxQuestions) {
             gameContainer.innerHTML = `
                 <div class="game-area">
                     <h2>${title} 終了！</h2>
-                    <p class="question-box">${score} / ${maxQ} 正解</p>
+                    <p class="question-box">${score} / ${maxQuestions} 正解</p>
                     <button class="game-btn" onclick="showHome()">ホームに戻る</button>
                 </div>
             `;
             return;
         }
 
-        // Pick random element
         const current = dataset[Math.floor(Math.random() * dataset.length)];
-
-        // Generate options (1 correct + 3 wrong)
         let options = [current.name];
         while (options.length < 4) {
             let rand = dataset[Math.floor(Math.random() * dataset.length)];
@@ -186,8 +173,8 @@ function runElementsGame(dataset, title) {
 
         gameContainer.innerHTML = `
             <div class="game-area">
-                <h2>${title} (${count + 1}/${maxQ})</h2>
-                <div class="atomic-number">原子番号 ${current.number}</div>
+                <h2>${title} (${count + 1}/${maxQuestions})</h2>
+                <div class="atomic-number">No. ${current.number}</div>
                 <div class="question-box">${current.symbol}</div>
                 <p>この元素の名前は？</p>
                 <div class="options-grid" id="opt-container"></div>
@@ -200,32 +187,109 @@ function runElementsGame(dataset, title) {
             const btn = document.createElement('button');
             btn.className = 'game-btn';
             btn.innerText = opt;
-            btn.onclick = () => checkAnswer(opt, current.name);
+            btn.onclick = () => {
+                const fb = document.getElementById('fb');
+                if (opt === current.name) {
+                    score++;
+                    fb.style.color = 'var(--correct)';
+                    fb.innerText = '正解！ ⭕';
+                } else {
+                    fb.style.color = 'var(--wrong)';
+                    fb.innerText = `残念... 正解は ${current.name}`;
+                }
+                count++;
+                setTimeout(nextQuestion, 1200);
+            };
             container.appendChild(btn);
         });
-    }
-
-    function checkAnswer(selected, correct) {
-        const fb = document.getElementById('fb');
-        if (selected === correct) {
-            score++;
-            fb.style.color = 'var(--correct)';
-            fb.innerText = '正解！ ⭕';
-        } else {
-            fb.style.color = 'var(--wrong)';
-            fb.innerText = `残念... 正解は ${correct}`;
-        }
-        count++;
-        setTimeout(nextQuestion, 1500);
     }
 
     nextQuestion();
 }
 
-// 2. Equation Game Engine
+
+// --- GAME ENGINE 2: SURVIVAL (ALL 118 QUESTIONS) ---
+
+function runSurvivalGame() {
+    // 1. Copy the full array so we can remove items as we go (or just shuffle once)
+    // We want to ask ALL 118, so we create a "To Do List"
+    let todoList = [...allElements]; 
+    
+    // 2. Shuffle the To Do List
+    todoList.sort(() => Math.random() - 0.5);
+
+    let score = 0;
+    let totalQs = allElements.length; // 118
+    let currentIdx = 0;
+
+    function nextSurvivalQuestion() {
+        if (currentIdx >= totalQs) {
+            gameContainer.innerHTML = `
+                <div class="game-area">
+                    <h2 style="color:var(--danger)">完全制覇 達成！</h2>
+                    <p>118個すべての元素を答えました。</p>
+                    <p class="question-box">${score} / ${totalQs} 正解</p>
+                    <p>お疲れ様でした！</p>
+                    <button class="game-btn" onclick="showHome()">ホームに戻る</button>
+                </div>
+            `;
+            return;
+        }
+
+        const current = todoList[currentIdx];
+
+        // Generate options: 1 correct + 3 random wrongs from the MAIN list
+        let options = [current.name];
+        while (options.length < 4) {
+            let rand = allElements[Math.floor(Math.random() * allElements.length)];
+            if (!options.includes(rand.name)) options.push(rand.name);
+        }
+        options.sort(() => Math.random() - 0.5);
+
+        gameContainer.innerHTML = `
+            <div class="game-area">
+                <h2 style="color:var(--danger)">完全制覇モード</h2>
+                <div class="progress-bar">残り: ${totalQs - currentIdx}個 (正解率: ${Math.round((score/(currentIdx||1))*100)}%)</div>
+                <div class="atomic-number">No. ${current.number}</div>
+                <div class="question-box" style="color:var(--danger)">${current.symbol}</div>
+                <div class="options-grid" id="opt-container"></div>
+                <div class="feedback" id="fb"></div>
+            </div>
+        `;
+
+        const container = document.getElementById('opt-container');
+        options.forEach(opt => {
+            const btn = document.createElement('button');
+            btn.className = 'game-btn';
+            btn.innerText = opt;
+            btn.onclick = () => {
+                const fb = document.getElementById('fb');
+                const btns = document.querySelectorAll('.game-btn');
+                btns.forEach(b => b.disabled = true); // Prevent double clicking
+
+                if (opt === current.name) {
+                    score++;
+                    fb.style.color = 'var(--correct)';
+                    fb.innerText = '正解！ ⭕';
+                } else {
+                    fb.style.color = 'var(--wrong)';
+                    fb.innerText = `不正解... 正解は ${current.name}`;
+                }
+                currentIdx++;
+                setTimeout(nextSurvivalQuestion, 1000); // Faster transition for marathon
+            };
+            container.appendChild(btn);
+        });
+    }
+
+    nextSurvivalQuestion();
+}
+
+
+// --- OTHER GAME ENGINES ---
+
 function runEquationsGame() {
     let idx = 0;
-
     function renderEq() {
         if (idx >= equationsData.length) {
             gameContainer.innerHTML = `<div class="game-area"><h2>全問クリア！</h2><button class="game-btn" onclick="showHome()">ホーム</button></div>`;
@@ -243,17 +307,13 @@ function runEquationsGame() {
             </div>
         `;
     }
-
-    // Attach to window so HTML onclick works
     window.checkEq = function() {
         const eq = equationsData[idx];
         const inputs = [];
-        // Loop through however many inputs the answer array expects
         for(let i=1; i <= eq.answer.length; i++) {
             const el = document.getElementById('c'+i);
             inputs.push(parseInt(el ? el.value : 0) || 0);
         }
-
         const fb = document.getElementById('eq-fb');
         if (JSON.stringify(inputs) === JSON.stringify(eq.answer)) {
             fb.style.color = 'var(--correct)'; fb.innerText = '正解！完璧です。';
@@ -262,14 +322,11 @@ function runEquationsGame() {
             fb.style.color = 'var(--wrong)'; fb.innerText = '数が合いません。';
         }
     };
-
     renderEq();
 }
 
-// 3. pH Game Engine
 function runPhGame() {
     let score = 0, count = 0, max = 5;
-
     function nextPh() {
         if (count >= max) {
             gameContainer.innerHTML = `<div class="game-area"><h2>結果: ${score}/${max}</h2><button class="game-btn" onclick="showHome()">ホーム</button></div>`;
@@ -289,7 +346,6 @@ function runPhGame() {
             </div>
         `;
     }
-
     window.checkPh = function(guess, answer) {
         const fb = document.getElementById('ph-fb');
         if (guess === answer) {
