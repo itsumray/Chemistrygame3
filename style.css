@@ -1,7 +1,7 @@
 :root {
     --primary: #4A90E2;
     --accent: #F5A623;
-    --danger: #E74C3C; /* Red for survival */
+    --danger: #E74C3C; /* 制覇モード用の赤 */
     --bg: #F0F4F8;
     --card: #FFFFFF;
     --text: #333333;
@@ -56,6 +56,12 @@ nav button:hover {
     color: var(--primary);
 }
 
+/* 制覇モードボタンを目立たせる */
+.nav-survival {
+    background: rgba(255,255,255,0.2);
+    border-color: #ffcccc;
+}
+
 main {
     flex: 1;
     padding: 2rem;
@@ -64,7 +70,7 @@ main {
     width: 100%;
 }
 
-/* MENU STYLES */
+/* メニューカードのデザイン */
 .menu-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -81,23 +87,21 @@ main {
     transition: transform 0.2s;
     border-bottom: 5px solid var(--primary);
 }
-
 .menu-card:hover { transform: translateY(-5px); }
 
-/* Different card colors for modes */
 .master-card {
-    border-bottom: 5px solid #9B59B6; /* Purple */
+    border-bottom: 5px solid #9B59B6; /* 紫 */
     background: #FAF5FF;
 }
 .master-card h2 { color: #8E44AD; }
 
 .survival-card {
-    border-bottom: 5px solid var(--danger); /* Red */
+    border-bottom: 5px solid var(--danger); /* 赤 */
     background: #FFF5F5;
 }
 .survival-card h2 { color: var(--danger); }
 
-/* GAME UI */
+/* ゲーム画面のデザイン */
 .game-area {
     background: var(--card);
     padding: 2rem;
@@ -124,11 +128,10 @@ main {
     margin-bottom: 5px;
 }
 
-.progress-bar {
-    font-size: 0.9rem;
-    color: #666;
-    margin-bottom: 1rem;
+.progress-text {
     font-weight: bold;
+    color: #666;
+    margin-bottom: 10px;
 }
 
 .options-grid {
@@ -148,9 +151,11 @@ main {
     cursor: pointer;
     font-family: var(--font-heading);
     transition: background 0.2s;
+    width: 100%;
 }
 
 .game-btn:hover { background: #357ABD; }
+.game-btn:disabled { opacity: 0.6; cursor: not-allowed; }
 
 .feedback {
     margin-top: 1.5rem;
@@ -159,7 +164,7 @@ main {
     height: 30px;
 }
 
-/* EQUATION STYLES */
+/* 反応式用のスタイル */
 .equation-box {
     font-size: 1.5rem;
     background: #f8f9fa;
