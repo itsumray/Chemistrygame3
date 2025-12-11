@@ -1,6 +1,7 @@
 :root {
     --primary: #4A90E2;
     --accent: #F5A623;
+    --danger: #E74C3C; /* Red for survival */
     --bg: #F0F4F8;
     --card: #FFFFFF;
     --text: #333333;
@@ -63,6 +64,7 @@ main {
     width: 100%;
 }
 
+/* MENU STYLES */
 .menu-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -82,12 +84,20 @@ main {
 
 .menu-card:hover { transform: translateY(-5px); }
 
+/* Different card colors for modes */
 .master-card {
-    border-bottom: 5px solid #9B59B6;
+    border-bottom: 5px solid #9B59B6; /* Purple */
     background: #FAF5FF;
 }
 .master-card h2 { color: #8E44AD; }
 
+.survival-card {
+    border-bottom: 5px solid var(--danger); /* Red */
+    background: #FFF5F5;
+}
+.survival-card h2 { color: var(--danger); }
+
+/* GAME UI */
 .game-area {
     background: var(--card);
     padding: 2rem;
@@ -112,6 +122,13 @@ main {
     color: #888;
     font-weight: bold;
     margin-bottom: 5px;
+}
+
+.progress-bar {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 1rem;
+    font-weight: bold;
 }
 
 .options-grid {
@@ -142,7 +159,7 @@ main {
     height: 30px;
 }
 
-/* Equation Styles */
+/* EQUATION STYLES */
 .equation-box {
     font-size: 1.5rem;
     background: #f8f9fa;
